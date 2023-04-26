@@ -1,9 +1,12 @@
 package googlecharts.com;
 
 import com.google.gson.Gson;
+
+import java.awt.Desktop;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.URI;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.stream.Collectors;
@@ -61,6 +64,11 @@ public class Main {
         FileWriter writer = new FileWriter(htmlFileName);
         writer.write(html);
         writer.close();
+        
+     // Abrir el archivo HTML en el navegador
+        String url = new File("src/googlecharts/com/google.html").toURI().toString();
+        Desktop.getDesktop().browse(URI.create(url));
+
     }
 }
 
